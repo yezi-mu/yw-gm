@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>国美(GOME)-综合网购商城，正品低价、品质保障、快速送达、安心服务！</title>
+    <link rel="SHORTCUT ICON" href="../images/Gome.ico">
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/login.css">
+    <link rel="stylesheet" href="../css/index.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><a href="./GomeIndex.html">欢迎登录</a></h1>
+        </div>
+    </header>
+    <div id="add">
+        <div class="container">
+            <div id="form">     
+                <h1><a>扫码登录</a> <span>|</span> <a>账户登录</a></h1>
+                <input type="text" id="text" placeholder="手机号码/用户名/邮箱/门店会员卡号">
+                <input type="password" id="pass" placeholder="密码">
+                <p id="left"><input id="checkbox" type="checkbox"><span>自动登录</span> </p>    
+                <p id="right"><span>忘记密码</span>|<span>免费注册</span></p>
+                <p><input type="submit" id="sub" value="登录"></p>
+            </div>
+        </div>
+        
+    </div>
+</body>
+<script src="../lib/jquery.min.js"></script>
+<script>
+        function getCookie(key){
+        // 传入key
+            var str = '';
+            var temp  =  document.cookie.split("; ");  //用; 进行分割
+            for(var i=0;i<temp.length;i++){
+            var a =  temp[i].split("=");
+            if(a[0]===key){
+                    str += a[1];
+                    return str;
+            }
+            }
+            
+        }
+        function setCookie(key,value,expires){
+        // 接收三个参数
+            if(expires){
+                var time = new Date();
+                time.setTime(time.getTime()-8*60*60*1000 + expires*1000);
+                document.cookie = `${key}=${value};${time}`;
+            }else{
+                document.cookie = `${key}=${value}`;
+            }
+        }
+        var unname = getCookie("name");
+        var pass = getCookie("pass");
+        if(unname){
+            $("#text").eq(0).val(unname);
+            $("#pass").eq(0).val(pass);
+            var affirm = confirm("即将自动登录");
+                if(affirm){
+                        $.ajax({
+                        url:"../php/login1.php",
+                        type:"POST",
+                        dataType:"json",
+                        data:{
+                            type:"login",                                        
+                            username:$("#text").eq(0).val(),
+                            password:$("#pass").eq(0).val(),
+                        },
+                        success:function(res){
+                            if(res.err==1){
+                                alert("登录成功");
+                                setCookie("name",$("#text").eq(0).val(),604800);
+                                setCookie("pass",$("#pass").eq(0).val(),604800);
+                                location.href = `./GomeIndex.html?name=${$("#text").eq(0).val()}`;
+                            }else{
+                                if(res.err== -1){
+                                    alert("账号或密码错误");
+                                }
+                                
+                            }
+                        }
+                    })
+                }
+            
+        }
+        $("#sub").eq(0).click(function(){
+            // console.log(document.getElementById("checkbox").checked);
+            if(document.getElementById("checkbox").checked){
+                
+                $.ajax({
+                    url:"../php/login1.php?expires=10",
+                    type:"POST",
+                    dataType:"json",
+                    data:{
+                        type:"login",
+                        username:$("#text").eq(0).val(),
+                        password:$("#pass").eq(0).val(),
+                    },
+                    success:function(res){
+                        if(res.err==1){
+                            alert("登录成功");
+                            setCookie("name",$("#text").eq(0).val(),604800);
+                            setCookie("pass",$("#pass").eq(0).val(),604800);
+                            location.href = `./GomeIndex.html?name=${$("#text").eq(0).val()}`;
+                        }else{
+                            if(res.err== -1){
+                                alert("账号或密码错误");
+                            }
+                            
+                        }
+                    }
+                })
+            }else{
+                $.ajax({
+                    url:"../php/login1.php",
+                    type:"POST",
+                    dataType:"json",
+                    data:{
+                        type:"login",
+                        username:$("#text").eq(0).val(),
+                        password:$("#pass").eq(0).val(),
+                    },
+                    success:function(res){
+                        if(res.err==1){
+                            alert("登录成功");
+                            setCookie("name",$("#text").eq(0).val(),604800);
+                            setCookie("pass",$("#pass").eq(0).val(),604800);
+                            location.href = `./GomeIndex.html?name=${$("#text").eq(0).val()}`;
+                        }else{
+                            if(res.err== -1){
+                                alert("账号或密码错误");
+                            }
+                            
+                        }
+                    }
+                })
+            }
+            
+        })
+</script>
+</html>

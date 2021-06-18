@@ -1,0 +1,404 @@
+a:hover{
+    text-decoration: none;
+}
+a{
+    cursor: pointer;
+}
+body,html{
+    height: 1111111111111px;
+}
+.container{
+    width: 988px;
+    margin: 0 auto;
+}
+#nav{
+    height: 30px;
+    background: #f8f8f8;
+    border-bottom: 1px solid #f3f3f3;
+}
+#nav a:hover{
+    color: #f5004b;
+}
+#nav>div>.ulleft{
+    float: left;
+}
+#nav>div>.ulleft>li>.strong{
+    color: #f5004b;
+    cursor: pointer;
+}
+#nav>div>.ulleft>li>a{
+    display: block;
+    line-height: 30px;
+    margin: 0 10px;
+
+}
+#nav>div>.ulright{
+    float: right;
+}
+#nav>div>.ulright>li>a{
+    display: block;
+    line-height: 30px;
+    margin: 0 10px;
+}
+#serve{
+    display: block;
+    width: 20px;
+    height: 19px;
+    float: left;
+    margin: 4px 5px 0 0;
+    background: url("https://css.gomein.net.cn/gmpro/1.0.0/public/1.0.0/css/i/ui.png")no-repeat;
+    background-position: 0 -513px;
+}
+#xjt{
+    float: right;
+    width: 12px;
+    margin: 12px 0 0 5px;
+    height: 7px;
+    background: url("https://css.gomein.net.cn/gmpro/1.0.0/public/1.0.0/css/i/ui.png") no-repeat;
+    background-position: -60px -481px;
+}
+
+#nav>div>ul>li{
+    float: left;
+}
+header{
+    height: 120px;
+    border-top: 1px solid #dadce0;
+    border-bottom: 1px solid #dadce0;
+
+}
+header>div>h1>a{
+    display: block;
+    width: 125px; 
+    height: 47px;
+    background: url(https://css.gomein.net.cn/gmpro/1.0.0/public/1.0.0/css/i/ui.png) no-repeat;
+    background-position: -97px  -1251px;
+    margin-top: 35px;
+    float: left;
+    text-indent: -999999px;
+}
+header>div>h1>img{
+    margin-top: 32px;
+}
+.p1{
+    height: 46px;
+}
+.p1>strong{
+    float: left;
+    margin-left: 542px;
+    margin-top: 15px;
+    color: #5e5e5e;
+}
+.p1>strong>i{
+    float: left;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: #ff7f23;
+    color: #ffffff;
+    line-height: 14px;
+    text-align: center;
+    margin: 2px 8px 0 ;
+}
+.p1>span{
+    float: right;
+    line-height: 46px;
+    color: #a5a5a5;
+}
+.p1>span>a{
+    display: inline-block;
+    width: 147px;
+    height: 24px;
+    border: 1px solid #e5e5e5;
+    line-height: 24px;
+    text-align: center;
+    padding: 0 5px;
+    margin: 0 0 0 11px;
+}
+.p1>span>a>i{
+    display: inline-block;
+    width: 12px; 
+    height: 7px;
+    background: url(https://css.gomein.net.cn/gmpro/1.0.0/public/1.0.0/css/i/ui.png) no-repeat;
+    background-position: -60px  -481px;
+}
+.p2{
+    height: 42px;
+    border: 1px solid #e6e6e6;
+    background: #eeeeee;
+    border-radius: 10px;
+    line-height: 42px;
+}
+.p2>sapn{
+    display: none;
+}
+.p2>span:nth-of-type(1),.p2>span:nth-of-type(2){
+    float: left;
+}
+.p2>span:nth-of-type(1){
+    width: 64px;
+    margin: 0 6px;
+    color: #333333;
+}
+.p2>span:nth-of-type(1)>input{
+    float: left;
+    margin: 14px 10px 0;
+}
+.p2>span:nth-of-type(2){
+    margin-left: 61px;
+}
+.p2>span:nth-of-type(3){
+    margin-right: 55px;
+}
+.p2>span:nth-of-type(4){
+    margin-right: 70px;
+}
+.p2>span:nth-of-type(5){
+    margin-right: 114px;
+}
+.p2>span:nth-of-type(6){
+    margin-right: 110px;
+}
+
+.p2>span:nth-of-type(3),.p2>span:nth-of-type(4),.p2>span:nth-of-type(5),.p2>span:nth-of-type(6){
+    float: right;
+}
+#form{
+    min-height: 168px;
+    border: 1px solid #e6e6e6;
+    margin-top: 42px;
+    border-radius: 10px;
+    position: relative;
+}
+.lose{
+    width: 360px;
+    height: 62px;
+    position: absolute;
+    margin: auto;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    >div{
+        float: right;
+        >p:nth-of-type(1){
+            color: #333333;
+            line-height: 26px;
+        }
+        >p:nth-of-type(2){
+            line-height: 26px;
+            >a:nth-of-type(1){
+                display: inline-block;
+                width: 40px;
+                height: 28px;
+                border-radius: 5px;
+                background: #e3101e;
+                color: #ffffff;
+                text-align: center;
+            }
+            >a:nth-of-type(2){
+                color: #006699;
+            }
+        }
+    }
+}
+.lose>i{
+    float: left;
+    width: 27px;
+    height: 20px;
+    background: url(https://css.gomein.net.cn/gmpro/1.0.0/public/1.0.0/css/i/ui.png) no-repeat;
+    background-position: -70px  -701px;
+    margin-top: 10px;
+}
+#form>p{
+    height: 42px;
+    line-height: 42px;
+    display: none;
+}
+#form>p>span:nth-of-type(1){
+    height: 42px;
+    float: left;
+    margin: 0 6px;
+    color: #333333;
+}
+#form>p>span:nth-of-type(1)>input{
+    float: left;
+    margin: 14px 10px 0;
+}
+#form>p>span:nth-of-type(2){
+    height: 42px;
+    float: left;
+    margin: 0 6px;
+    color: #333333;
+}
+#form>p>span:nth-of-type(2)>i{
+    float: left;
+    width: 20px;
+    height: 18px;
+    background: url(https://css.gomein.net.cn/gmpro/1.0.0/public/1.0.0/css/i/ui.png) no-repeat;
+    background-position: 0  -513px;
+    margin: 11px 6px 0;
+}
+.matter{
+    height: 125px;
+    border-top: 1px solid #e6e6e6;
+    display: none;
+    // background: #fffaf4;
+}
+.matter>span{
+    float: left;
+    margin: 20px 6px;
+    color: #333333;
+}
+.matter>span>input{
+    float: left;
+    margin: 1px 10px 0;
+}
+.matter>strong{
+    width: 80px;
+    height: 80px;
+    float: left;
+    margin: 20px 0 0 4px;
+    border: 1px solid #e6e6e6;
+}
+.matter>strong>img{
+    width: 80px;
+    height: 80px;
+}
+.matter>.recommend{
+    width: 218px;
+    height: 80px;
+    float: left;
+    margin: 20px 0 0  9px;
+}
+.matter>.recommend>p{
+    line-height: 22px;
+    color: #333333;
+    font-size: 12px;
+
+}
+.matter>.color{
+    width: 131px;
+    float: left;
+    margin: 20px 0 0 20px;
+}
+.matter>.color>p{
+    line-height: 22px;
+    color: #a7a7a7;
+}
+.matter>.priceone{
+    float: left;
+    margin: 20px 0 0 0;
+    width: 67px;
+}
+.matter>.num{
+    width: 78px;
+    height: 20px;
+    border: 1px solid #cccccc;
+    float: left;
+    margin: 20px 0 0 67px;
+    >span:nth-of-type(1){
+        float: left;
+        width: 15px;
+        font-size: 16px;
+        height: 20px;
+        line-height: 20px;
+        border-right: 1px solid #cccccc;
+        cursor: pointer;
+        text-align: center;
+
+    }
+    >span:nth-of-type(2){
+        float: right;
+        height: 20px;
+        width: 15px;
+        font-size: 16px;
+        border-left: 1px solid #cccccc;
+        cursor: pointer;
+        text-align: center;
+        line-height: 20px;
+
+    }
+    >strong{
+        float: left;
+        width: 46px;
+        height: 20px;
+        text-align: center;
+
+    }
+}
+.price{
+    float: left;
+    margin: 20px 0 0 65px;
+    width: 67px;
+    font-weight: bold;
+}
+.operation{
+    margin-top: 20px;
+    width: 70px;
+    float: right;
+    margin-right: 13px;
+    >p{
+        height: 22px;
+        cursor: pointer;
+    }
+    >p:hover{
+        color:#e3101e;
+    }
+}
+#footer{
+    width: 100%;
+    height: 60px;
+    background: #f3f3f3;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    line-height: 60px;
+    font-size: 16px;
+}
+#footer>div>span:nth-of-type(1){
+    margin-left:16px;
+    >input{
+        margin: 0 10px 0 0;
+    }
+}
+#footer>div>span:nth-of-type(2){
+    margin-left:20px;
+    
+}
+.pay{
+    float: right;
+    height: 60px;
+    width: 136px;
+    background: #e3101e;
+    color: #ffffff;
+    text-align: center;
+    line-height: 60px;
+}
+.pri{
+    float: right;
+    margin-right: 20px;
+  
+    >span{
+        color: #e3101e;
+        font-weight: bold;
+    }
+}
+.sum{
+    float: right;
+    margin-right: 25px;
+    >span{
+        color: #e3101e;
+        font-weight: bold;
+        margin: 0 2px;
+    }
+    >i{
+        float: right;
+        width: 12px;
+        height: 7px;
+        background: url(https://css.gomein.net.cn/gmpro/1.0.0/public/1.0.0/css/i/ui.png) no-repeat;
+        background-position: -60px  -493px;
+        margin: 28px 5px 0;
+        cursor: pointer;
+    }
+}

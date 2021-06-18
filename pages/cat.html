@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>国美(GOME)-综合网购商城，正品低价、品质保障、快速送达、安心服务！</title>
+    <link rel="SHORTCUT ICON" href="../images/Gome.ico">
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/cat.css">
+</head>
+
+<body>
+    <nav id="nav">
+        <div class="container">
+            <ul class="ulleft">
+                <li><a class="me">国美会员<i id="xjt"></i></a></li>
+                <li><a href="./login.html">登录</a></li>
+                <li><a class="strong" href="./add.html">注册有礼物</a></li>
+            </ul>
+            <ul class="ulright">
+                <li><a href="javascrpit:;">我的订单</a></li>
+                <li><a>我的国美</a></li>
+                <li><a href="javascrpit:;">企业采购<i id="xjt"></i></a></li>
+                <li><a href="javascrpit:;"><i id="serve"></i>服务中心<i id="xjt"></i></a></li>
+                <li><a href="javascrpit:;">网站导航<i id="xjt"></i></a></li>
+                <li><a href="javascrpit:;">手机国美<i id="xjt"></i></a></li>
+            </ul>
+        </div>
+    </nav>
+    <header>
+        <div class="container">
+            <h1>
+                <a></a><img src="https://css.gomein.net.cn/gmpro/2.0.0/cart/3.1.27/css/i/gwc.png" alt=""></h1>
+        </div>
+    </header>
+    <p class="p1 container"><strong> <i>!</i> 运费说明</strong><span>配送至:<a>广东省深圳市宝安区西乡街道 <i></i> </a></span></p>
+    <p class="p2 container"><span><input  type="checkbox" class="all"  >全选</span> <span>商品信息</span><span>操作</span> <span>小计</span> <span>数量</span> <span>单价</span></p>
+    <div id="form" class="container">
+        <p> <span><input type="checkbox" class="alls" >国美网店</span> <span> <i></i> 在线客服</span></p>
+        <div class="matter">
+            <span><input type="checkbox" class="sort"></span>
+            <strong><img src="https://gfs17.gomein.net.cn/T1GiD5ByDv1RCvBVdK_450.jpg" alt=""></strong>
+            <div class="recommend">
+                <p>荣耀(honor)荣耀30青春版6GB+128GB全网通版幻夜黑</p>
+                <p><i>商品编号:</i> <span>100625078</span></p>
+            </div>
+            <div class="color">
+                <p>颜色: <span>幻夜黑</span> </p>
+                <p>版本: <span>6+128GB</span></p>
+            </div>
+            <p class="priceone">
+                ￥2399.00
+            </p>
+            <div class="num">
+                <span>-</span>
+                <strong>1</strong>
+                <span>+</span>
+            </div>
+            <p class="price">
+                ￥2399.00
+            </p>
+            <div class="operation">
+                <p>删除</p>
+                <p>移入收藏夹</p>
+            </div>
+        </div>
+        <div class="lose">
+            <i></i>
+            <div>
+                <p>购物车内暂无商品，登录后将显示您之前加入的商品</p>
+                <p><a href="./login.html">登录</a> <a href="./GomeIndex.html">挑选商品 </a> </p>
+            </div>
+        </div>
+    </div>
+    <section id="footer">
+        <div class="container">
+            <span><input  type="checkbox"  class="All">全选</span>
+            <span>删除</span>
+            <span class="pay">去结算</span>
+            <span class="pri">
+            总计(不含运费)：<span>￥00.00</span>
+            </span>
+            <span class="sum">
+            已选择共<span>0</span>件 <i></i>
+            </span>
+        </div>
+    </section>
+</body>
+<script src="../lib/jquery.min.js"></script>
+<script src="../js/general.js"></script>
+<script>
+    $("header>div>h1").click(function() {
+        location.href = "./GomeIndex.html"
+    })
+    if (getCookie("name")) {
+        alert("请稍后");
+        $.ajax({
+            url: "../interface/showlist.php",
+            dataType: "json",
+            type: "POST",
+            data: {
+                master: getCookie("name"),
+            },
+            success: function(res) {
+                console.log(res.data);
+                $.each(res.data, function(index, item) {
+                    var sums = parseInt(item.price.split("￥")[1]) * item.num;
+                    sums = "￥" + sums;
+                    $("#form").append($(`<div class="matter">
+            <span><input type="checkbox" class="sort"></span>
+            <strong><img src=${item.img} alt=""></strong>
+            <div class="recommend">
+                <p>${item.name}</p>
+                <p><i>商品编号:</i> <span>${item.serial}</span></p>
+            </div>
+            <div class="color">
+                <p>颜色: <span>${item.color}</span> </p>
+                <p>版本: <span>${item.versions}</span></p>
+            </div>
+            <p class="priceone">
+                ${item.price}
+            </p>
+            <div class="num">
+                <span>-</span>
+                <strong>${item.num}</strong>
+                <span>+</span>
+            </div>
+            <p class="price">
+                ${sums}
+            </p>
+            <div class="operation">
+                <p>删除</p>
+                <p>移入收藏夹</p>
+            </div>
+         </div>`))
+                })
+                $(".lose").css("display", "none");
+                $(".matter").css("display", "block");
+                $("#form>p").css("display", "block");
+                // 一些全选按钮
+
+                $(".all").click(function() {
+                    if ($(".all").prop("checked") == true) {
+                        $(".alls").prop("checked", true)
+                        $(".All").prop("checked", true)
+                        $(".sort").prop("checked", true)
+                            .parent()
+                            .parent()
+                            .css({
+                                background: "#fffaf4",
+                            })
+                    } else if ($(".all").prop("checked") == false) {
+                        $(".alls").prop("checked", false)
+                        $(".All").prop("checked", false)
+                        $(".sort").prop("checked", false)
+                            .parent()
+                            .parent()
+                            .css({
+                                background: "#ffffff"
+                            })
+                    }
+                    var a = 0;
+                    var b = 0;
+                    $.each($(".sort"), function(i, t) {
+                        if ($(".sort").eq(i).prop("checked") == true) {
+                            a++;
+                            b += parseInt($(".price").eq(i).text().split("￥")[1]);
+                        }
+                    })
+                    if (b == 0) {
+                        $(".pri>span").text("￥00.00")
+                        $(".sum>span").text("0")
+
+                    } else {
+                        b = "￥" + b.toFixed(2)
+                        $(".sum>span").text(a);
+                        $(".pri>span").text(b)
+                    }
+                })
+                $(".alls").click(function() {
+                    if ($(".alls").prop("checked") == true) {
+                        $(".all").prop("checked", true)
+                        $(".All").prop("checked", true)
+                        $(".sort").prop("checked", true)
+                            .parent()
+                            .parent()
+                            .css({
+                                background: "#fffaf4",
+                            })
+                    } else if ($(".alls").prop("checked") == false) {
+                        $(".all").prop("checked", false)
+                        $(".All").prop("checked", false)
+                        $(".sort").prop("checked", false)
+                            .parent()
+                            .parent()
+                            .css({
+                                background: "#ffffff"
+                            })
+                    }
+                    var a = 0;
+                    var b = 0;
+                    $.each($(".sort"), function(i, t) {
+                        if ($(".sort").eq(i).prop("checked") == true) {
+                            a++;
+                            b += parseInt($(".price").eq(i).text().split("￥")[1]);
+                        }
+                    })
+                    if (b == 0) {
+                        $(".sum>span").text("0")
+                        $(".pri>span").text("￥00.00")
+                    } else {
+                        b = "￥" + b.toFixed(2)
+                        $(".sum>span").text(a);
+                        $(".pri>span").text(b)
+                    }
+                })
+                $(".All").click(function() {
+                        if ($(".All").prop("checked") == true) {
+                            $(".all").prop("checked", true)
+                            $(".alls").prop("checked", true)
+                            $(".sort").prop("checked", true)
+                                .parent()
+                                .parent()
+                                .css({
+                                    background: "#fffaf4",
+                                })
+                        } else if ($(".All").prop("checked") == false) {
+                            $(".all").prop("checked", false)
+                            $(".alls").prop("checked", false)
+                            $(".sort").prop("checked", false)
+                                .parent()
+                                .parent()
+                                .css({
+                                    background: "#ffffff"
+                                })
+                        }
+
+                        var a = 0;
+                        var b = 0;
+                        $.each($(".sort"), function(i, t) {
+                            if ($(".sort").eq(i).prop("checked") == true) {
+                                a++;
+                                b += parseInt($(".price").eq(i).text().split("￥")[1]);
+                            }
+                        })
+                        if (b == 0) {
+                            $(".sum>span").text("0")
+                            $(".pri>span").text("￥00.00")
+                        } else {
+                            b = "￥" + b.toFixed(2)
+                            $(".sum>span").text(a);
+                            $(".pri>span").text(b)
+                        }
+                    })
+                    // 选择的商品
+                $(".sort").click(function() {
+                        if ($(this).prop("checked") == true) {
+                            $(this)
+                                .parent()
+                                .parent()
+                                .css({
+                                    background: "#fffaf4",
+                                })
+
+                        } else if ($(this).prop("checked") == false) {
+                            $(this)
+                                .parent()
+                                .parent()
+                                .css({
+                                    background: "#ffffff",
+                                })
+                        }
+
+                        var a = 0;
+                        var b = 0;
+                        $.each($(".sort"), function(i, t) {
+                            if ($(".sort").eq(i).prop("checked") == true) {
+                                a++;
+                                b += parseInt($(".price").eq(i).text().split("￥")[1]);
+                            }
+                        })
+                        if (b == 0) {
+                            $(".pri>span").text("￥00.00")
+                            $(".sum>span").text("0")
+                        } else {
+                            b = "￥" + b.toFixed(2)
+                            $(".sum>span").text(a);
+                            $(".pri>span").text(b)
+                        }
+
+                    })
+                    // 加减按钮
+                $.each($(".matter"), function(i, t) {
+                    var num = $(".matter>.num>strong").eq(i).text();
+                    var nums;
+                    var time
+                    $(`.matter>.num:eq(${i})>span`).eq(0).click(function() {
+                        if ($(".matter>.num>strong").eq(i).text() > 1) {
+                            num--;
+                            $(".matter>.num>strong").eq(i).text(num);
+                            nums = (parseInt($(`.matter>.priceone`).eq(i).text().split("￥")[1]) * num).toFixed(2)
+                            nums = "￥" + nums;
+                            $(".price").eq(i).text(nums);
+                            var m = $(`.matter:eq(${i})>.recommend>p:eq(1)>span`).text();
+                            var n = $(`.matter:eq(${i})>.num>strong`).text()
+                            if (time) {
+                                clearInterval(time)
+                            }
+                            time = setTimeout(() => {
+                                $.ajax({
+                                    url: "../interface/updatewq.php",
+                                    data: {
+                                        num: n,
+                                        master: getCookie("name"),
+                                        id: m,
+                                    },
+                                    type: "POST",
+                                    success: function(res) {
+                                        var res = JSON.parse(res);
+                                        if (res.code == 1) {
+                                            alert("修改成功")
+                                        }
+                                    }
+                                })
+                            }, 2000)
+                        }
+
+                    })
+                    $(`.matter>.num:eq(${i})>span`).eq(1).click(function() {
+                        num++;
+                        $(".matter>.num>strong").eq(i).text(num);
+                        nums = (parseInt($(`.matter>.priceone`).eq(i).text().split("￥")[1]) * num).toFixed(2);
+                        nums = "￥" + nums;
+                        $(".price").eq(i).text(nums)
+                        var m = $(`.matter:eq(${i})>.recommend>p:eq(1)>span`).text()
+                        var n = $(`.matter:eq(${i})>.num>strong`).text();
+                        if (time) {
+                            clearInterval(time)
+                        }
+                        time = setTimeout(() => {
+                            $.ajax({
+                                url: "../interface/updatewq.php",
+                                data: {
+                                    num: n,
+                                    master: getCookie("name"),
+                                    id: m,
+                                },
+                                type: "POST",
+                                success: function(res) {
+                                    var res = JSON.parse(res);
+                                    if (res.code == 1) {
+                                        alert("修改成功")
+                                    }
+                                }
+                            })
+                        }, 2000)
+                    })
+                    $(`.operation>p:eq(${i})`).click(function() {
+                        var m = $(`.matter:eq(${i})>.recommend>p:eq(1)>span`).text()
+
+                        $(this).parent().parent().remove();
+                        $.ajax({
+                            url: "../interface/delwq.php",
+                            type: "POST",
+                            dataType: "json",
+                            data: {
+                                master: getCookie("name"),
+                                id: m,
+                            },
+                            success: function(res) {
+                                if (res.code == 1) {
+                                    alert("删除成功")
+                                }
+                            }
+                        })
+                    })
+
+                })
+
+                if ($(".matter").length == 0) {
+                    var fla = confirm("购物车还没有东西呢，现在去挑选东西把😔");
+                    if (fla) {
+                        location.href = "./GomeIndex.html";
+                    }
+                }
+            }
+
+        })
+    }
+</script>
+
+</html>
